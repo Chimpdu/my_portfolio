@@ -2,6 +2,144 @@
 * {
   box-sizing: border-box; }
 
+/* styles for menu button */
+.menu-btn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  cursor: pointer;
+  z-index: 3; }
+  .menu-btn .btn-line {
+    width: 28px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    transition: all 0.2s ease-out; }
+  .menu-btn.close {
+    /* line 1 rotate and translate(move position)*/ }
+    .menu-btn.close .btn-line {
+      /* line 2 disappear */
+      /* line 3 rotate and translate(move position) */ }
+      .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); }
+      .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; }
+      .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); }
+
+/* styles for menu */
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; }
+  .menu.show {
+    visibility: visible; }
+  .menu-branding, .menu-nav {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh; }
+  .menu-branding {
+    background-color: #444;
+    transform: translate3d(-100%, 100%, 0);
+    /* place it to 100% of its own width left, 100% of its own height buttom and 0 in z-axis(it is 3D afterall) */
+    transition: all 0.2s ease-out; }
+    .menu-branding .portrait {
+      width: 350px;
+      height: 350px;
+      background-image: url("../img/Yuxin_Du.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      border-radius: 50%;
+      border: 3px solid #eece1a; }
+    .menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    margin: 0;
+    list-style: none;
+    font-size: 2rem;
+    background-color: #303030;
+    transition: all 0.2s ease-out;
+    transform: translate3d(100%, -100%, 0); }
+    .menu-nav .current > a {
+      color: #eece1a; }
+    .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+    .menu-nav .nav-item {
+      margin-bottom: 1rem;
+      transform: translate3d(600px, 0, 0);
+      transition: all 0.2s ease-out; }
+      .menu-nav .nav-item.show {
+        transform: translate3d(0, 0, 0); }
+      .menu-nav .nav-item .nav-link {
+        font-weight: 300;
+        display: inline-block;
+        /* <a> is inline by default,
+                 which do not display vertical margain or padding. 
+                display inline allows it being inline(not creating a newline) 
+                while having some features in block such as vertical margin and padding */
+        margin-top: 1rem; }
+
+/* create delay for individual transformation of nav-item*/
+.nav-item:nth-child(1) {
+  transition-delay: 0.1s; }
+
+.nav-item:nth-child(2) {
+  transition-delay: 0.2s; }
+
+.nav-item:nth-child(3) {
+  transition-delay: 0.3s; }
+
+.nav-item:nth-child(4) {
+  transition-delay: 0.4s; }
+
+/*  Smartphones */
+@media screen and (max-width: 500px) {
+  /* when you call mixin in another file and define the mixin there,
+         the content would be put at "@content" */ }
+
+/*  Tablets & small laptops*/
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  .menu {
+    display: flex;
+    flex-flow: row wrap;
+    opacity: 0.9; }
+    .menu-branding {
+      width: 100%;
+      height: 20vh;
+      transform: translate3d(-100%, 0, 0);
+      transition: all 0.2s ease-out; }
+      .menu-branding .portrait {
+        width: 100px;
+        height: 100px; }
+      .menu-branding.show {
+        transform: translate3d(0, 0, 0); }
+    .menu-nav {
+      width: 100%;
+      height: 80vh;
+      transform: translate3d(100%, 0, 0);
+      transition: all 0.2s ease-out; }
+      .menu-nav.show {
+        transform: translate3d(0, 0, 0); } }
+
+/* Desktops & laptops */
+/* Widescreens */
 body {
   background-color: #444;
   color: #fff;
@@ -20,7 +158,7 @@ body {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(68, 68, 68, 0.9);
+    background-color: rgba(68, 68, 68, 0.8);
     z-index: -1; }
 
 h1, h2, h3 {
@@ -47,14 +185,16 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%; }
+  height: 100vh;
+  display: flex;
+  flex-direction: column; }
   main .icons {
     margin-top: 1rem; }
     main .icons a {
       padding: 0.4rem; }
       main .icons a:hover, main .icons a:focus {
         color: #eece1a;
-        transition: all 0.5s ease-out; }
+        transition: all 0.2s ease-out; }
   main#home {
     overflow: hidden; }
     main#home h1 {

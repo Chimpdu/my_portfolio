@@ -1,0 +1,122 @@
+/* styles for menu button */
+.menu-btn {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    cursor: pointer;
+    z-index: 3;
+    .btn-line {
+        width: 28px;
+        height: 3px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        @include easeOut();    
+    }
+    
+        
+    &.close{
+        /* line 1 rotate and translate(move position)*/
+        .btn-line{
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+         
+        }
+        /* line 2 disappear */
+            &:nth-child(2) {
+                opacity: 0;
+            }
+        /* line 3 rotate and translate(move position) */
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+    }
+    }
+    
+}
+/* styles for menu */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    
+    
+    visibility: hidden;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: row;
+
+
+    &.show{
+        visibility: visible;
+    }
+    &-branding, &-nav {
+        display: flex;
+        flex-direction: column;
+        float: left;
+        flex-wrap: wrap;     
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100vh;  
+    }  
+    &-branding{
+        background-color: $primary-color;
+        transform: translate3d(-100%, 100%, 0); 
+        /* place it to 100% of its own width left, 100% of its own height buttom and 0 in z-axis(it is 3D afterall) */
+        @include easeOut();
+        .portrait{
+            width: 350px;
+            height: 350px;
+            background-image: url("../img/Yuxin_Du.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            border-radius: 50%;
+            border: 3px  solid $secondary-color;
+        }
+
+
+        &.show{
+            transform: translate3d(0, 0, 0);
+            
+        }
+    }
+    &-nav {
+        margin: 0; 
+        list-style: none;
+        font-size: 2rem;
+        background-color: darken($primary-color, $amount: 8);
+       
+        @include easeOut();
+        transform: translate3d(100%, -100%, 0);
+        .current>a {
+            color: $secondary_color;
+        }
+        &.show{
+            transform:translate3d(0, 0, 0);
+        }
+        .nav-item{
+            margin-bottom: 1rem;
+            transform: translate3d(600px, 0, 0);
+            @include easeOut();
+            &.show{
+                transform: translate3d(0, 0, 0);
+            }
+            .nav-link{
+                font-weight: 300;
+                display: inline-block; /* <a> is inline by default,
+                 which do not display vertical margain or padding. 
+                display inline allows it being inline(not creating a newline) 
+                while having some features in block such as vertical margin and padding */
+                margin-top: 1rem;
+            }
+        }
+    } 
+}  
+/* create delay for individual transformation of nav-item*/
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: 0.1s * $x;
+    }
+}         
