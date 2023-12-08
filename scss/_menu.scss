@@ -9,7 +9,7 @@
         width: 28px;
         height: 3px;
         margin-bottom: 5px;
-        background-color: #fff;
+        background-color: set-color($primary-color);
         @include easeOut();    
     }
     
@@ -87,9 +87,11 @@
         list-style: none;
         font-size: 2rem;
         background-color: darken($primary-color, $amount: 8);
-       
         @include easeOut();
         transform: translate3d(100%, -100%, 0);
+        a {
+            color: set-color($primary-color);
+        }
         .current>a {
             color: $secondary_color;
         }
@@ -104,7 +106,7 @@
                 transform: translate3d(0, 0, 0);
             }
             .nav-link{
-                font-weight: 300;
+                font-weight: 500;
                 display: inline-block; /* <a> is inline by default,
                  which do not display vertical margain or padding. 
                 display inline allows it being inline(not creating a newline) 

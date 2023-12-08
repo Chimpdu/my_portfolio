@@ -1,8 +1,13 @@
-/*  Smartphones */
-@include mediaSm{
-     
+/* Widescreens */
+@include mediaXl{
+    .projects{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
+/* Desktops & laptops */
+@include mediaLg {
 
+}
 /*  Tablets & small laptops*/
 @include mediaMd {
     main{
@@ -41,15 +46,24 @@
             }
         }
     }
-    
+    .about-info{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        'img'
+        'bio'
+        'bio'
+        'edu1'
+        'edu2'
+        'edu3';
+    }
+    .projects{
+        grid-template-columns: repeat(2, 1fr);
+    }
     
 }
-
-/* Desktops & laptops */
-@include mediaLg {
-
-}
-/* Widescreens */
-@include mediaXl{
-
+/*  Smartphones */
+@include mediaSm{
+    .projects{
+        grid-template-columns: 1fr;
+    }
 }
