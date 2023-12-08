@@ -3,7 +3,7 @@ $primary-color: #444;
 $secondary-color: #eece1a;
 $show-home-image: true;
 $home-image: url(../img/background.jpg); /* the address is relative to your css file as it would be translated */
-$background-opacity: 0.8;
+$background-opacity: 0.5;
 @function set-color($color) {
     @if (lightness($color) > 40) {
         @return #000;
