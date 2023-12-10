@@ -62,12 +62,12 @@ main {
     }
 }
 /* about page */
+/* with modifications */
 .about-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-    'img bio bio'
-    'edu1 edu2 edu3';
+    'img bio bio';
     grid-gap: 30px;
 }
 .bio-img {
@@ -82,7 +82,7 @@ main {
     grid-area: bio;
     font-size: 1.5rem;
 }
-.job-1{
+/* .job-1{
     grid-area: edu1;
 }
 .job-2{
@@ -95,6 +95,72 @@ main {
     background-color: lighten($primary-color, 3);
     border-bottom: 3px $secondary-color solid;
     padding: 1rem;
+} */
+main{
+    &#aboutme{
+        height: 100vh;
+    }
+}
+.parallax{
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.8em;
+    color: #666;
+    background-color: #fff;
+    width: 100%;
+    .pimg1, .pimg2, .pimg3{
+        position: relative;
+        opacity: 0.80;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /* fixed->parallax, scoll -> normal */
+    }
+    .pimg1{
+        background-image: url('../img/ts.jpg');
+        min-height: 800px;
+    }
+    .pimg2{
+        background-image: url('../img/tj.jpg');
+        min-height: 800px;
+    }
+    .pimg3{
+        background-image: url('../img/fl.jpg');
+        min-height: 800px;
+    }
+    .section{
+        text-align: center;
+        padding: 50px 80px;
+        &-light{
+            background-color: #f4f4f4;
+            color: #666;
+        }
+        &-dark{
+            background-color: #282e34;
+            color: #ddd;
+        }
+    }
+    .ptext{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: black;
+        font-size: 27px;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        .border{
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            line-height: 2;
+        }
+    }
+    
 }
 /* work page */
 

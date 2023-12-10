@@ -168,10 +168,11 @@ main {
       margin-top: 20vh; }
 
 /* about page */
+/* with modifications */
 .about-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: 'img bio bio' 'edu1 edu2 edu3';
+  grid-template-areas: 'img bio bio';
   grid-gap: 30px; }
 
 .bio-img {
@@ -184,19 +185,73 @@ main {
   grid-area: bio;
   font-size: 1.5rem; }
 
-.job-1 {
-  grid-area: edu1; }
+/* .job-1{
+    grid-area: edu1;
+}
+.job-2{
+    grid-area: edu2;
+}
+.job-3{
+    grid-area: edu3;
+}
+.job{
+    background-color: lighten($primary-color, 3);
+    border-bottom: 3px $secondary-color solid;
+    padding: 1rem;
+} */
+main#aboutme {
+  height: 100vh; }
 
-.job-2 {
-  grid-area: edu2; }
-
-.job-3 {
-  grid-area: edu3; }
-
-.job {
-  background-color: #4c4c4c;
-  border-bottom: 3px #eece1a solid;
-  padding: 1rem; }
+.parallax {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #666;
+  background-color: #fff;
+  width: 100%; }
+  .parallax .pimg1, .parallax .pimg2, .parallax .pimg3 {
+    position: relative;
+    opacity: 0.80;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* fixed->parallax, scoll -> normal */ }
+  .parallax .pimg1 {
+    background-image: url("../img/ts.jpg");
+    min-height: 800px; }
+  .parallax .pimg2 {
+    background-image: url("../img/tj.jpg");
+    min-height: 800px; }
+  .parallax .pimg3 {
+    background-image: url("../img/fl.jpg");
+    min-height: 800px; }
+  .parallax .section {
+    text-align: center;
+    padding: 50px 80px; }
+    .parallax .section-light {
+      background-color: #f4f4f4;
+      color: #666; }
+    .parallax .section-dark {
+      background-color: #282e34;
+      color: #ddd; }
+  .parallax .ptext {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase; }
+    .parallax .ptext .border {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      line-height: 2; }
 
 /* work page */
 #main-footer {
@@ -305,5 +360,10 @@ main {
 @media screen and (max-width: 500px) {
   .projects {
     grid-template-columns: 1fr; }
+  /* .bio-img{
+        display: none;
+    } */
+  .bio {
+    font-size: 1rem; }
   /* when you call mixin in another file and define the mixin there,
          the content would be put at "@content" */ }
