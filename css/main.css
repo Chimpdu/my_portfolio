@@ -1,0 +1,369 @@
+/* $primary-color: #fff; */
+/* the address is relative to your css file as it would be translated */
+* {
+  box-sizing: border-box; }
+
+/* styles for menu button */
+.menu-btn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  cursor: pointer;
+  z-index: 3; }
+  .menu-btn .btn-line {
+    width: 28px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    transition: all 0.2s ease-out; }
+  .menu-btn.close {
+    /* line 1 rotate and translate(move position)*/ }
+    .menu-btn.close .btn-line {
+      /* line 2 disappear */
+      /* line 3 rotate and translate(move position) */ }
+      .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); }
+      .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; }
+      .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); }
+
+/* styles for menu */
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; }
+  .menu.show {
+    visibility: visible; }
+  .menu-branding, .menu-nav {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh; }
+  .menu-branding {
+    background-color: #444;
+    transform: translate3d(-100%, 100%, 0);
+    /* place it to 100% of its own width left, 100% of its own height buttom and 0 in z-axis(it is 3D afterall) */
+    transition: all 0.2s ease-out; }
+    .menu-branding .portrait {
+      width: 350px;
+      height: 350px;
+      background-image: url("../img/Yuxin_Du.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      border-radius: 50%;
+      border: 3px solid #eece1a; }
+    .menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    margin: 0;
+    list-style: none;
+    font-size: 2rem;
+    background-color: #303030;
+    transition: all 0.2s ease-out;
+    transform: translate3d(100%, -100%, 0); }
+    .menu-nav a {
+      color: #fff; }
+    .menu-nav .current > a {
+      color: #eece1a; }
+    .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+    .menu-nav .nav-item {
+      margin-bottom: 1rem;
+      transform: translate3d(600px, 0, 0);
+      transition: all 0.2s ease-out; }
+      .menu-nav .nav-item.show {
+        transform: translate3d(0, 0, 0); }
+      .menu-nav .nav-item .nav-link {
+        font-weight: 500;
+        display: inline-block;
+        /* <a> is inline by default,
+                 which do not display vertical margain or padding. 
+                display inline allows it being inline(not creating a newline) 
+                while having some features in block such as vertical margin and padding */
+        margin-top: 1rem; }
+
+/* create delay for individual transformation of nav-item*/
+.nav-item:nth-child(1) {
+  transition-delay: 0.1s; }
+
+.nav-item:nth-child(2) {
+  transition-delay: 0.2s; }
+
+.nav-item:nth-child(3) {
+  transition-delay: 0.3s; }
+
+.nav-item:nth-child(4) {
+  transition-delay: 0.4s; }
+
+body {
+  background-color: #444;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5; }
+  body#bg-img {
+    background: url(../img/background.jpg);
+    background-attachment: fixed;
+    background-size: cover; }
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(68, 68, 68, 0.5);
+    z-index: -1; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400; }
+  h1.lg-heading, h2.lg-heading, h3.lg-heading {
+    font-size: 6rem; }
+  h1.sm-heading, h2.sm-heading, h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(73, 73, 73, 0.5); }
+
+a {
+  color: #fff;
+  text-decoration: none; }
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%; }
+
+.text-secondary {
+  color: #eece1a; }
+
+main {
+  padding: 4rem;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column; }
+  main .icons {
+    margin-top: 1rem; }
+    main .icons a {
+      color: #fff;
+      padding: 0.4rem; }
+      main .icons a:hover, main .icons a:focus {
+        color: #eece1a;
+        transition: all 0.2s ease-out; }
+  main#home {
+    overflow: hidden; }
+    main#home h1 {
+      margin-top: 20vh; }
+
+/* about page */
+/* with modifications */
+.about-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'img bio bio';
+  grid-gap: 30px; }
+
+.bio-img {
+  grid-area: img;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid #eece1a; }
+
+.bio {
+  grid-area: bio;
+  font-size: 1.5rem; }
+
+/* .job-1{
+    grid-area: edu1;
+}
+.job-2{
+    grid-area: edu2;
+}
+.job-3{
+    grid-area: edu3;
+}
+.job{
+    background-color: lighten($primary-color, 3);
+    border-bottom: 3px $secondary-color solid;
+    padding: 1rem;
+} */
+main#aboutme {
+  height: 100vh; }
+
+.parallax {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #666;
+  background-color: #fff;
+  width: 100%; }
+  .parallax .pimg1, .parallax .pimg2, .parallax .pimg3 {
+    position: relative;
+    opacity: 0.80;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* fixed->parallax, scoll -> normal */ }
+  .parallax .pimg1 {
+    background-image: url("../img/ts.jpg");
+    min-height: 800px; }
+  .parallax .pimg2 {
+    background-image: url("../img/tj.jpg");
+    min-height: 800px; }
+  .parallax .pimg3 {
+    background-image: url("../img/fl.jpg");
+    min-height: 800px; }
+  .parallax .section {
+    text-align: center;
+    padding: 50px 80px; }
+    .parallax .section-light {
+      background-color: #f4f4f4;
+      color: #666; }
+    .parallax .section-dark {
+      background-color: #282e34;
+      color: #ddd; }
+  .parallax .ptext {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase; }
+    .parallax .ptext .border {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      line-height: 2; }
+
+/* work page */
+#main-footer {
+  text-align: center;
+  height: 60px;
+  background-color: #373737;
+  font-size: 1.5rem;
+  padding-top: 20px; }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.7rem; }
+  .projects img {
+    width: 100%;
+    border: 3px solid #fff;
+    transition: all 0.2s ease-out; }
+    .projects img:hover {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+      border: 5px solid #eece1a;
+      opacity: 0.5; }
+
+/* using extend in scss, .btn does not exist but we can extent it */
+.btn, .btn-light, .btn-dark {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-light:hover, .btn-dark:hover {
+    background-color: #eece1a;
+    color: #000; }
+
+.btn-light {
+  background-color: #c4c4c4;
+  color: #333; }
+
+.btn-dark {
+  background-color: black;
+  color: #fff; }
+
+/* contact page */
+.contacts {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center; }
+  .contacts .contact {
+    padding: 1rem 2rem;
+    border: 2px solid #fff;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 2rem;
+    transition: all 0.2s ease-out; }
+    .contacts .contact:hover {
+      padding: 0.5rem 1rem;
+      border: solid 5px #000;
+      background-color: #eece1a;
+      color: #000; }
+      .contacts .contact:hover span {
+        color: #000; }
+
+/* Widescreens */
+@media screen and (min-width: 1171px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr); } }
+
+/* Desktops & laptops */
+/*  Tablets & small laptops*/
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  .menu {
+    display: flex;
+    flex-flow: row wrap;
+    opacity: 0.9; }
+    .menu-branding {
+      width: 100%;
+      height: 20vh;
+      transform: translate3d(-100%, 0, 0);
+      transition: all 0.2s ease-out; }
+      .menu-branding .portrait {
+        width: 100px;
+        height: 100px; }
+      .menu-branding.show {
+        transform: translate3d(0, 0, 0); }
+    .menu-nav {
+      width: 100%;
+      height: 80vh;
+      transform: translate3d(100%, 0, 0);
+      transition: all 0.2s ease-out; }
+      .menu-nav.show {
+        transform: translate3d(0, 0, 0); }
+  .about-info {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 'img' 'bio' 'bio' 'edu1' 'edu2' 'edu3'; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); } }
+
+/*  Smartphones */
+@media screen and (max-width: 500px) {
+  .projects {
+    grid-template-columns: 1fr; }
+  /* .bio-img{
+        display: none;
+    } */
+  .bio {
+    font-size: 1rem; }
+  /* when you call mixin in another file and define the mixin there,
+         the content would be put at "@content" */ }
