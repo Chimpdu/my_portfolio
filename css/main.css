@@ -377,5 +377,7 @@ main#aboutme {
     } */
   .bio {
     font-size: 1rem; }
+  .parallax .border {
+    font-size: 1rem; }
   /* when you call mixin in another file and define the mixin there,
          the content would be put at "@content" */ }
