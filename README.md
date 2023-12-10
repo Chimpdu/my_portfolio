@@ -1,4 +1,4 @@
-# my_portfolio
+# my_portfolio by Yuxin Du
 
 ## see the outcome
 As the website is already deployed using github pages, the easiest way to see the result is to visit https://chimpdu.github.io/my_portfolio/.
