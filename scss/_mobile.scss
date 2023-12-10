@@ -16,8 +16,20 @@
         .lg-heading {
             line-height: 1;
             margin-bottom: 1rem;
+         
         }
-
+        &#aboutme, &#work, &#contact{
+            .lg-heading {
+                font-size: 2rem;
+            }
+        }
+        &#aboutme {
+            min-height: 100vh;
+            .bio-img{
+                width: 150px;
+                height: 150px;
+            }
+        }
     }
     .menu{
         display: flex;
@@ -59,6 +71,14 @@
     .projects{
         grid-template-columns: repeat(2, 1fr);
     }
+    .parallax{
+        .pimg1, .pimg2, .pimg3{
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+    }
     
 }
 /*  Smartphones */
@@ -72,5 +92,6 @@
     .bio{
         font-size: 1rem;
     }
+
     
 }

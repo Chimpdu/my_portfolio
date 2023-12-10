@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "My stylish portfolio",
   "main": "index.js",
+  "homepage": "https://Chimpdu.github.io/my_portfolio",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/"
+    "sass": "node-sass -w scss/ -o dist/css/",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Yuxin Du",
   "license": "MIT",
   "dependencies": {
+    "gh-pages": "^6.1.0",
     "node-sass": "^9.0.0"
   }
 }

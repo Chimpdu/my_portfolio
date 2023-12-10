@@ -61,6 +61,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      background-position: center;
       border-radius: 50%;
       border: 3px solid #eece1a; }
     .menu-branding.show {
@@ -329,6 +330,13 @@ main#aboutme {
     main .lg-heading {
       line-height: 1;
       margin-bottom: 1rem; }
+    main#aboutme .lg-heading, main#work .lg-heading, main#contact .lg-heading {
+      font-size: 2rem; }
+    main#aboutme {
+      min-height: 100vh; }
+      main#aboutme .bio-img {
+        width: 150px;
+        height: 150px; }
   .menu {
     display: flex;
     flex-flow: row wrap;
@@ -354,7 +362,12 @@ main#aboutme {
     grid-template-columns: repeat(1, 1fr);
     grid-template-areas: 'img' 'bio' 'bio' 'edu1' 'edu2' 'edu3'; }
   .projects {
-    grid-template-columns: repeat(2, 1fr); } }
+    grid-template-columns: repeat(2, 1fr); }
+  .parallax .pimg1, .parallax .pimg2, .parallax .pimg3 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll; } }
 
 /*  Smartphones */
 @media screen and (max-width: 500px) {
